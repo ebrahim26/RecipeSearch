@@ -18,12 +18,6 @@ struct RecipeCellViewModel {
     var reciepeUrl:String
 }
 
-//class PreviousSearchClass: Object {
-//    @objc dynamic var title = ""
-//    override static func primaryKey() -> String? {
-//            return "title"
-//        }
-//}
 public enum State {
     case error
 }
@@ -36,11 +30,11 @@ struct FilterModel {
 }
 
 class RecipeCellSearchClass: Object {
- let healthLabel  = List<String>()
+    @objc dynamic var healthLabel = ""
     @objc dynamic var title = ""
     @objc dynamic var Source = ""
     @objc dynamic var image_url = ""
-     let ingerdientArray  = List<String>()
+    @objc  dynamic  var ingerdientArray = ""
     @objc dynamic var publisherLink = ""
     @objc dynamic var reciepeUrl = ""
     

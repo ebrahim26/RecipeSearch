@@ -10,6 +10,7 @@ import Kingfisher
 import SafariServices
 class RecipeDetailsViewController: UIViewController ,SFSafariViewControllerDelegate {
 
+    @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var titleText = ""
@@ -23,7 +24,7 @@ class RecipeDetailsViewController: UIViewController ,SFSafariViewControllerDeleg
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource  = self
-        titleLabel.text = titleText
+        recipeTitle.text = titleText
         
     }
     
@@ -106,6 +107,24 @@ extension RecipeDetailsViewController : UITableViewDelegate , UITableViewDataSou
         }
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }else{
         return 30
+        }
     }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return 183.0
+//        }else {
+//            return 40.0
+//        }
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return 183.0
+//        }else {
+//            return
+//        }
+//    }
 }

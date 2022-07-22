@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
        searchText.delegate = self
+        searchText.keyboardType = UIKeyboardType.asciiCapable
         navigationController?.navigationBar.isHidden = true
         activityIndicator.style = .large
         activityIndicator.color = .black
@@ -50,11 +51,22 @@ class ViewController: UIViewController {
         viewModel.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
               //  self?.isSearching = false
+                if  self?.viewModel.numberOfCells ?? 0 > 0 {
                 self?.hasPreviousSearch = false
                 self?.recipeTableView.reloadData()
+                    self?.recipeTableView.isHidden = false
+                    self?.messageLabel.text = ""
                // self?.view.endEditing(true)
                 self?.activityIndicator.isHidden = true
                 self?.activityIndicator.stopAnimating()
+                }else{
+                    self?.hasPreviousSearch = false
+                    self?.recipeTableView.isHidden = true
+                    self?.messageLabel.text = "there is no result"
+                   // self?.view.endEditing(true)
+                    self?.activityIndicator.isHidden = true
+                    self?.activityIndicator.stopAnimating()
+                }
             }
         }
         viewModel.updateLoadingStatus = { [weak self] () in
@@ -161,7 +173,7 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
          // Use the outlet in our custom class to get a reference to the UILabel in the cell
          cell.filterName.text = self.filterArray[indexPath.row].filterDesignName // The row value is the same as the index of the desired text within the array.
          if filterArray[indexPath.row].isChecked {
-         cell.backgroundColor = UIColor.yellow
+             cell.backgroundColor = UIColor(red: 247.0/100.0, green: 204.0/100.0, blue: 70.0/100.0, alpha: 1)
              cell.filterName.textColor  =  UIColor.black
              cell.layer.borderWidth = 1
              cell.layer.borderColor = UIColor.gray.cgColor

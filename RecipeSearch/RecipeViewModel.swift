@@ -98,11 +98,9 @@ class RecipeListViewModel {
         previousSearchObject.reciepeUrl = recipeObject.reciepeUrl
         previousSearchObject.image_url = recipeObject.image_url
         previousSearchObject.Source = recipeObject.Source
-        //previousSearchObject.a
-        previousSearchObject.ingerdientArray.append(objectsIn: recipeObject.ingerdientArray)
-        previousSearchObject.healthLabel.append(objectsIn: recipeObject.healthLabel)
-//       // previousSearchObject.ingerdientArray =
-//        previousSearchObject.healthLabel =
+        print( recipeObject.ingerdientArray.joined(separator: "%") ,"array")
+        previousSearchObject.ingerdientArray = recipeObject.ingerdientArray.joined(separator: ",")
+        previousSearchObject.healthLabel = recipeObject.healthLabel.joined(separator: "%")
         try! realm.write {
             realm.add(previousSearchObject)
             print("added")
@@ -117,7 +115,20 @@ class RecipeListViewModel {
         let previousSearchArray = realm.objects(RecipeCellSearchClass.self)
             print(previousSearchArray.count)
             for i in previousSearchArray {
-                var recipeObject = RecipeCellViewModel(healthLabel: i.healthLabel as! [String] , title: i.title, Source:i.Source , image_url:i.image_url , ingerdientArray: i.ingerdientArray as! [String], publisherLink:i.publisherLink , reciepeUrl: i.reciepeUrl)
+                let healthArrayChar = i.healthLabel.split(separator: "%")
+                var healthArrayString = [String]()
+                for i in healthArrayChar {
+                    healthArrayString.append(String(i))
+                }
+               // components(separatedBy: "%%")
+                let ingridentArrayChar = i.ingerdientArray.split(separator: "%")
+                var ingridentArrayString = [String]()
+                for i in ingridentArrayChar {
+                    ingridentArrayString.append(String(i))
+                }
+               // components(separatedBy: "%")
+                //print(ingridentArray.count , "ingrident")
+                let recipeObject = RecipeCellViewModel(healthLabel:healthArrayString , title: i.title, Source:i.Source , image_url:i.image_url , ingerdientArray:ingridentArrayString , publisherLink:i.publisherLink , reciepeUrl: i.reciepeUrl)
                 
                 searchedQuery.append(recipeObject)
             }
