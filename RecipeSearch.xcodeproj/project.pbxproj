@@ -107,6 +107,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		037C0DE0288AC84C00DBEC35 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				037C0DDE2888D03900DBEC35 /* FilterCollectionViewCell.swift */,
+				038FAD4828877F83002B0714 /* RecipeTableViewCell.swift */,
+				037C0DDA2888AED300DBEC35 /* RecipeDetailsTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		037C0DE1288AC88300DBEC35 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				037C0DDC2888AEF200DBEC35 /* RecipeDetailsViewController.swift */,
+				038FAD1428875E9A002B0714 /* ViewController.swift */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		037C0DE2288AC8B400DBEC35 /* network services */ = {
+			isa = PBXGroup;
+			children = (
+				038FAD422887719D002B0714 /* RecipeApiCallServices.swift */,
+			);
+			path = "network services";
+			sourceTree = "<group>";
+		};
+		037C0DE3288AC8DB00DBEC35 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				038FAD46288778FA002B0714 /* RecipeCellViewModel.swift */,
+				038FAD40288760E2002B0714 /* RecipeModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		037C0DE4288AC8E500DBEC35 /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				038FAD4428877883002B0714 /* RecipeViewModel.swift */,
+			);
+			path = "view models";
+			sourceTree = "<group>";
+		};
 		038FAD0428875E9A002B0714 = {
 			isa = PBXGroup;
 			children = (
@@ -133,16 +177,12 @@
 			isa = PBXGroup;
 			children = (
 				038FAD1028875E9A002B0714 /* AppDelegate.swift */,
-				037C0DDE2888D03900DBEC35 /* FilterCollectionViewCell.swift */,
-				037C0DDA2888AED300DBEC35 /* RecipeDetailsTableViewCell.swift */,
-				037C0DDC2888AEF200DBEC35 /* RecipeDetailsViewController.swift */,
 				038FAD1228875E9A002B0714 /* SceneDelegate.swift */,
-				038FAD422887719D002B0714 /* RecipeApiCallServices.swift */,
-				038FAD46288778FA002B0714 /* RecipeCellViewModel.swift */,
-				038FAD1428875E9A002B0714 /* ViewController.swift */,
-				038FAD4428877883002B0714 /* RecipeViewModel.swift */,
-				038FAD4828877F83002B0714 /* RecipeTableViewCell.swift */,
-				038FAD40288760E2002B0714 /* RecipeModel.swift */,
+				037C0DE4288AC8E500DBEC35 /* view models */,
+				037C0DE3288AC8DB00DBEC35 /* models */,
+				037C0DE2288AC8B400DBEC35 /* network services */,
+				037C0DE0288AC84C00DBEC35 /* cells */,
+				037C0DE1288AC88300DBEC35 /* view controllers */,
 				038FAD1628875E9A002B0714 /* Main.storyboard */,
 				038FAD1928875E9E002B0714 /* Assets.xcassets */,
 				038FAD1B28875E9E002B0714 /* LaunchScreen.storyboard */,
